@@ -11,371 +11,739 @@
 html{scroll-behavior:smooth}
 
 body{
-    font-family:Georgia,serif;
-    color:#5b1734;
-    background:linear-gradient(135deg,#ffd6e7,#ffeaf3,#ffd0e2);
-    overflow-x:hidden;
+font-family:Georgia,serif;
+color:#5b1734;
+background:linear-gradient(135deg,#ffd6e7,#ffeaf3,#ffd0e2);
+overflow-x:hidden;
 }
 
 .hero{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:25px;
-    text-align:center;
+min-height:100vh;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:25px;
+text-align:center;
 }
 
 .card{
-    width:min(92%,650px);
-    padding:45px 25px;
-    border-radius:35px;
-    background:rgba(255,255,255,.7);
-    backdrop-filter:blur(15px);
-    box-shadow:0 20px 60px rgba(100,20,50,.18);
+width:min(92%,650px);
+padding:45px 25px;
+border-radius:35px;
+background:rgba(255,255,255,.72);
+backdrop-filter:blur(15px);
+box-shadow:0 20px 60px rgba(100,20,50,.18);
 }
 
 .heart{
-    font-size:75px;
-    animation:pulse 1.3s infinite;
+font-size:75px;
+animation:pulse 1.3s infinite;
 }
 
 h1{
-    font-size:clamp(40px,10vw,65px);
-    color:#d4145a;
-    margin:15px 0;
+font-size:clamp(40px,10vw,65px);
+color:#d4145a;
+margin:15px 0;
 }
 
 .name{
-    font-size:clamp(28px,7vw,42px);
-    font-weight:bold;
-    color:#8d3154;
+font-size:clamp(28px,7vw,42px);
+font-weight:bold;
+color:#8d3154;
 }
 
 p{
-    line-height:1.8;
-    font-size:18px;
+line-height:1.8;
+font-size:18px;
 }
 
 button{
-    border:0;
-    padding:15px 25px;
-    margin:15px 5px;
-    border-radius:30px;
-    background:linear-gradient(135deg,#ff2474,#c90052);
-    color:white;
-    font-size:16px;
-    box-shadow:0 8px 20px rgba(200,0,80,.25);
+border:0;
+padding:15px 25px;
+margin:15px 5px;
+border-radius:30px;
+background:linear-gradient(135deg,#ff2474,#c90052);
+color:white;
+font-size:16px;
+box-shadow:0 8px 20px rgba(200,0,80,.25);
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+transform:scale(1.05);
 }
 
 .music{
-    position:fixed;
-    right:18px;
-    top:18px;
-    z-index:100;
+position:fixed;
+right:18px;
+top:18px;
+z-index:1000;
 }
 
 .music button{
-    width:55px;
-    height:55px;
-    padding:0;
-    border-radius:50%;
-    font-size:22px;
+width:55px;
+height:55px;
+padding:0;
+border-radius:50%;
+font-size:22px;
 }
 
 section{
-    padding:70px 20px;
-    text-align:center;
+padding:70px 20px;
+text-align:center;
 }
 
 .title{
-    color:#d4145a;
-    font-size:34px;
-    margin-bottom:25px;
+color:#d4145a;
+font-size:34px;
+margin-bottom:25px;
 }
 
 .countdown{
-    display:flex;
-    justify-content:center;
-    flex-wrap:wrap;
-    gap:12px;
-    margin:25px 0;
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin:25px 0;
 }
 
 .time{
-    background:white;
-    padding:15px 10px;
-    border-radius:18px;
-    min-width:75px;
-    box-shadow:0 8px 20px rgba(0,0,0,.1);
+background:white;
+padding:15px 10px;
+border-radius:18px;
+min-width:75px;
+box-shadow:0 8px 20px rgba(0,0,0,.1);
 }
 
 .time strong{
-    display:block;
-    font-size:27px;
-    color:#d4145a;
+display:block;
+font-size:27px;
+color:#d4145a;
 }
 
 .gallery{
-    max-width:850px;
-    margin:30px auto;
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
+max-width:850px;
+margin:30px auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
 }
 
 .gallery img{
-    width:100%;
-    height:260px;
-    object-fit:cover;
-    border-radius:25px;
-    box-shadow:0 10px 25px rgba(0,0,0,.15);
-    transition:.4s;
+width:100%;
+height:260px;
+object-fit:cover;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,.15);
+transition:.4s;
 }
 
 .gallery img:hover{
-    transform:scale(1.04) rotate(1deg);
+transform:scale(1.04) rotate(1deg);
+}
+
+.slideshow{
+max-width:600px;
+margin:30px auto;
+position:relative;
+}
+
+.slide{
+display:none;
+width:100%;
+height:350px;
+object-fit:cover;
+border-radius:30px;
+box-shadow:0 15px 35px rgba(0,0,0,.2);
+}
+
+.slide.active{
+display:block;
+animation:fade .8s ease;
 }
 
 .message-box{
-    max-width:650px;
-    margin:auto;
+max-width:650px;
+margin:auto;
 }
 
 .message{
-    display:none;
-    background:rgba(255,255,255,.75);
-    padding:30px 20px;
-    border-radius:25px;
-    box-shadow:0 10px 30px rgba(100,20,50,.12);
+display:none;
+background:rgba(255,255,255,.75);
+padding:30px 20px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(100,20,50,.12);
 }
 
 .message.active{
-    display:block;
-    animation:appear .7s ease;
+display:block;
+animation:appear .7s ease;
 }
 
 .message h3{
-    color:#e75480;
-    font-size:25px;
-    margin-bottom:15px;
+color:#e75480;
+font-size:25px;
+margin-bottom:15px;
+}
+
+.reasons{
+max-width:800px;
+margin:30px auto;
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.reason{
+background:white;
+padding:25px;
+border-radius:25px;
+box-shadow:0 8px 25px rgba(0,0,0,.1);
+transition:.3s;
+}
+
+.reason:hover{
+transform:translateY(-7px);
+}
+
+.reason span{
+font-size:40px;
+}
+
+.timeline{
+max-width:650px;
+margin:30px auto;
+text-align:left;
+}
+
+.event{
+background:white;
+padding:20px;
+margin:15px 0;
+border-left:5px solid #ff2474;
+border-radius:15px;
+box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+
+.event h3{
+color:#d4145a;
+margin-bottom:8px;
+}
+
+.love-letter{
+max-width:650px;
+margin:auto;
+background:rgba(255,255,255,.8);
+padding:35px 25px;
+border-radius:30px;
+box-shadow:0 15px 40px rgba(100,20,50,.15);
+}
+
+.gift{
+font-size:110px;
+cursor:pointer;
+display:inline-block;
+transition:.5s;
+animation:bounce 1.5s infinite;
+}
+
+.gift:hover{
+transform:scale(1.15);
+}
+
+.gift-message{
+display:none;
+margin-top:20px;
+background:white;
+padding:25px;
+border-radius:25px;
+animation:appear .7s ease;
+}
+
+.cake{
+font-size:100px;
+cursor:pointer;
+display:inline-block;
+}
+
+.cake-message{
+display:none;
+margin-top:15px;
+}
+
+.secret-box input{
+padding:14px;
+border:2px solid #ff8bb3;
+border-radius:20px;
+outline:none;
+font-size:16px;
+text-align:center;
+}
+
+.secret-message{
+display:none;
+margin-top:20px;
+background:white;
+padding:25px;
+border-radius:25px;
+animation:appear .7s ease;
 }
 
 .final{
-    min-height:70vh;
-    display:flex;
-    align-items:center;
-    justify-content:center;
+min-height:70vh;
+display:flex;
+align-items:center;
+justify-content:center;
 }
 
 .footer{
-    text-align:center;
-    padding:30px;
+text-align:center;
+padding:30px;
 }
 
 .floating{
-    position:fixed;
-    bottom:-40px;
-    pointer-events:none;
-    z-index:50;
-    animation:floatUp linear forwards;
+position:fixed;
+bottom:-40px;
+pointer-events:none;
+z-index:50;
+animation:floatUp linear forwards;
 }
 
 .confetti{
-    position:fixed;
-    top:-30px;
-    z-index:200;
-    animation:fall 4s linear forwards;
-    pointer-events:none;
+position:fixed;
+top:-30px;
+z-index:2000;
+animation:fall 4s linear forwards;
+pointer-events:none;
+}
+
+.tap-heart{
+position:fixed;
+pointer-events:none;
+z-index:3000;
+font-size:25px;
+animation:tapHeart 1s ease forwards;
 }
 
 @keyframes pulse{
-    0%,100%{transform:scale(1)}
-    50%{transform:scale(1.18)}
+0%,100%{transform:scale(1)}
+50%{transform:scale(1.18)}
 }
 
 @keyframes appear{
-    from{opacity:0;transform:translateY(20px)}
-    to{opacity:1;transform:translateY(0)}
+from{opacity:0;transform:translateY(20px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+@keyframes fade{
+from{opacity:0}
+to{opacity:1}
 }
 
 @keyframes floatUp{
-    to{
-        transform:translateY(-110vh) rotate(360deg);
-        opacity:0;
-    }
+to{
+transform:translateY(-110vh) rotate(360deg);
+opacity:0;
+}
 }
 
 @keyframes fall{
-    to{
-        transform:translateY(110vh) rotate(720deg);
-        opacity:0;
-    }
+to{
+transform:translateY(110vh) rotate(720deg);
+opacity:0;
+}
+}
+
+@keyframes bounce{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-15px)}
+}
+
+@keyframes tapHeart{
+to{
+transform:translateY(-80px) scale(1.5);
+opacity:0;
+}
 }
 
 @media(max-width:600px){
-    .gallery{grid-template-columns:1fr}
-    .gallery img{height:300px}
+.gallery{grid-template-columns:1fr}
+.gallery img{height:300px}
+.reasons{grid-template-columns:1fr}
+.slide{height:300px}
 }
 </style>
 </head>
 
 <body>
 
+<!-- MUSIC -->
+
 <div class="music">
-    <button onclick="toggleMusic()" id="musicButton">🎵</button>
+<button onclick="toggleMusic()" id="musicButton">🎵</button>
 </div>
 
 <audio id="music" loop>
-    <source src="music.mp3" type="audio/mpeg">
+<source src="music.mp3" type="audio/mpeg">
 </audio>
 
 
+<!-- HERO -->
+
 <div class="hero">
 
-    <div class="card">
+<div class="card">
 
-        <div class="heart">💗</div>
+<div class="heart">💗</div>
 
-        <h1>Happy Birthday</h1>
+<h1>Happy Birthday</h1>
 
-        <div class="name">Esha Gull 🎂</div>
+<div class="name">Esha Gull 🎂</div>
 
-        <p style="margin-top:20px">
-            Today is your special day. 🌸
-            I made this little surprise especially for you,
-            filled with memories, wishes and lots of love.
-            💕
-        </p>
+<p style="margin-top:20px">
+Today is your special day. 🌸
+I made this little surprise especially for you,
+filled with memories, wishes and lots of love. 💕
+</p>
 
-        <div class="countdown">
+<div class="countdown">
 
-            <div class="time">
-                <strong id="days">00</strong>
-                Days
-            </div>
+<div class="time">
+<strong id="days">00</strong>
+Days
+</div>
 
-            <div class="time">
-                <strong id="hours">00</strong>
-                Hours
-            </div>
+<div class="time">
+<strong id="hours">00</strong>
+Hours
+</div>
 
-            <div class="time">
-                <strong id="minutes">00</strong>
-                Minutes
-            </div>
+<div class="time">
+<strong id="minutes">00</strong>
+Minutes
+</div>
 
-            <div class="time">
-                <strong id="seconds">00</strong>
-                Seconds
-            </div>
-
-        </div>
-
-        <button onclick="startSurprise()">
-            🎁 Start Surprise
-        </button>
-
-    </div>
+<div class="time">
+<strong id="seconds">00</strong>
+Seconds
+</div>
 
 </div>
 
+<button onclick="startSurprise()">
+🎁 Start Surprise
+</button>
+
+</div>
+</div>
+
+
+<!-- PHOTO GALLERY -->
 
 <section>
 
-    <h2 class="title">📸 Our Beautiful Memories</h2>
+<h2 class="title">📸 Our Beautiful Memories</h2>
 
-    <p>Some moments are worth keeping forever. 💗</p>
+<p>Some moments are worth keeping forever. 💗</p>
 
-    <div class="gallery">
+<div class="gallery">
 
-        <img src="photo1.jpg" alt="Memory 1">
-        <img src="photo2.jpg" alt="Memory 2">
-        <img src="photo3.jpg" alt="Memory 3">
-        <img src="photo4.jpg" alt="Memory 4">
-        <img src="photo5.jpg" alt="Memory 5">
+<img src="photo1.jpg" alt="Memory 1">
+<img src="photo2.jpg" alt="Memory 2">
+<img src="photo3.jpg" alt="Memory 3">
+<img src="photo4.jpg" alt="Memory 4">
+<img src="photo5.jpg" alt="Memory 5">
 
-    </div>
+</div>
 
 </section>
 
 
+<!-- SLIDESHOW -->
+
 <section>
 
-    <h2 class="title">💌 Messages For You</h2>
+<h2 class="title">✨ Our Little Story</h2>
 
-    <div class="message-box">
+<div class="slideshow">
 
-        <div class="message active" id="message">
-            <h3>💗 First Surprise</h3>
-            <p>
-                Happy Birthday, Esha Gull! 🎂
-                I hope today brings you endless smiles,
-                happiness and beautiful memories.
-            </p>
-        </div>
+<img class="slide active" src="photo1.jpg">
+<img class="slide" src="photo2.jpg">
+<img class="slide" src="photo3.jpg">
+<img class="slide" src="photo4.jpg">
+<img class="slide" src="photo5.jpg">
 
-        <div class="message">
-            <h3>🌸 Second Surprise</h3>
-            <p>
-                May this new year of your life be filled
-                with happiness, success, peaceful moments
-                and countless reasons to smile. ✨
-            </p>
-        </div>
+</div>
 
-        <div class="message">
-            <h3>💖 Third Surprise</h3>
-            <p>
-                Keep smiling and keep shining.
-                You deserve all the beautiful things
-                life has to offer. 🌷
-            </p>
-        </div>
-
-        <div class="message">
-            <h3>🎁 Final Message</h3>
-            <p>
-                Once again, Happy Birthday Esha Gull! 🎂💗
-                Have the most beautiful 16 August.
-            </p>
-        </div>
-
-    </div>
-
-    <button onclick="nextMessage()">
-        💌 Open Next
-    </button>
+<p>Every picture holds a little memory. ❤️</p>
 
 </section>
 
+
+<!-- MESSAGES -->
+
+<section>
+
+<h2 class="title">💌 Messages For You</h2>
+
+<div class="message-box">
+
+<div class="message active">
+<h3>💗 First Surprise</h3>
+<p>
+Happy Birthday, Esha Gull! 🎂
+I hope today brings you endless smiles,
+happiness and beautiful memories.
+</p>
+</div>
+
+<div class="message">
+<h3>🌸 Second Surprise</h3>
+<p>
+May this new year of your life be filled
+with happiness, success, peaceful moments
+and countless reasons to smile. ✨
+</p>
+</div>
+
+<div class="message">
+<h3>💖 Third Surprise</h3>
+<p>
+Keep smiling and keep shining.
+You deserve all the beautiful things
+life has to offer. 🌷
+</p>
+</div>
+
+<div class="message">
+<h3>🎁 Final Message</h3>
+<p>
+Once again, Happy Birthday Esha Gull! 🎂💗
+Have the most beautiful 16 August.
+</p>
+</div>
+
+</div>
+
+<button onclick="nextMessage()">💌 Open Next</button>
+
+</section>
+
+
+<!-- REASONS -->
+
+<section>
+
+<h2 class="title">💖 Reasons I Love You</h2>
+
+<div class="reasons">
+
+<div class="reason">
+<span>😊</span>
+<h3>Your Smile</h3>
+<p>Your smile can make even an ordinary day feel special.</p>
+</div>
+
+<div class="reason">
+<span>💗</span>
+<h3>Your Heart</h3>
+<p>You have a beautiful heart and that makes you special.</p>
+</div>
+
+<div class="reason">
+<span>🌸</span>
+<h3>Your Personality</h3>
+<p>The way you are is one of the things I appreciate most.</p>
+</div>
+
+<div class="reason">
+<span>✨</span>
+<h3>Your Presence</h3>
+<p>Having you around makes memories more beautiful.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- TIMELINE -->
+
+<section>
+
+<h2 class="title">🗓️ Our Memory Timeline</h2>
+
+<div class="timeline">
+
+<div class="event">
+<h3>🌸 The Beginning</h3>
+<p>One of the moments that became a beautiful memory.</p>
+</div>
+
+<div class="event">
+<h3>💗 Our Memories</h3>
+<p>So many little moments became something worth remembering.</p>
+</div>
+
+<div class="event">
+<h3>✨ Today</h3>
+<p>Today is about celebrating you and your beautiful smile.</p>
+</div>
+
+<div class="event">
+<h3>🎂 The Future</h3>
+<p>Hopefully many more beautiful memories are waiting for us.</p>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- LOVE LETTER -->
+
+<section>
+
+<h2 class="title">💌 A Little Love Letter</h2>
+
+<div class="love-letter">
+
+<p>
+Dear Esha Gull, ❤️
+</p>
+
+<p style="margin-top:15px">
+Happy Birthday to someone who deserves all the
+happiness, smiles and beautiful moments in the world.
+I hope this little website reminds you how special
+you are and how much your presence means.
+</p>
+
+<p style="margin-top:15px">
+Keep smiling, keep shining and never forget how
+beautifully unique you are. 🌸
+</p>
+
+<p style="margin-top:15px">
+Happy Birthday once again. 🎂💗
+</p>
+
+<p style="margin-top:20px">
+With love,<br>
+<b>Abdullah ❤️</b>
+</p>
+
+</div>
+
+</section>
+
+
+<!-- GIFT -->
+
+<section>
+
+<h2 class="title">🎁 A Little Gift</h2>
+
+<p>Tap the gift to open your surprise.</p>
+
+<div class="gift" onclick="openGift()">🎁</div>
+
+<div class="gift-message" id="giftMessage">
+
+<h3>💝 Surprise!</h3>
+
+<p>
+Your real gift is all the beautiful memories,
+smiles and moments still waiting to happen. ❤️
+</p>
+
+</div>
+
+</section>
+
+
+<!-- CAKE -->
+
+<section>
+
+<h2 class="title">🎂 Make A Birthday Wish</h2>
+
+<div class="cake" onclick="blowCandles()">🎂</div>
+
+<p>Tap the cake to blow out the candles. ✨</p>
+
+<div class="cake-message" id="cakeMessage">
+
+<h3>✨ Wish Made!</h3>
+
+<p>
+May your birthday wish come true, Esha. 💗
+</p>
+
+</div>
+
+</section>
+
+
+<!-- SECRET -->
+
+<section>
+
+<h2 class="title">🔐 Secret Message</h2>
+
+<p>Enter the secret code to unlock something special. 💗</p>
+
+<div class="secret-box">
+
+<input id="secretCode" type="password" placeholder="Enter code">
+
+<button onclick="unlockSecret()">🔓 Unlock</button>
+
+</div>
+
+<div class="secret-message" id="secretMessage">
+
+<h3>💖 You Found It!</h3>
+
+<p>
+Esha, you are one of the most beautiful parts
+of my memories. Never stop smiling. 🌸❤️
+</p>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
 
 <section class="final">
 
-    <div class="card">
+<div class="card">
 
-        <h2 class="title">✨ One Last Surprise</h2>
+<h2 class="title">✨ One Last Surprise</h2>
 
-        <p>
-            I hope this little website makes your birthday
-            a little more special. 💕
-        </p>
+<p>
+I hope this little website makes your birthday
+a little more special. 💕
+</p>
 
-        <p style="margin-top:15px">
-            Made with ❤️ by <b>Abdullah</b>
-        </p>
+<p style="margin-top:15px">
+Made with ❤️ by <b>Abdullah</b>
+</p>
 
-        <button onclick="celebrate()">
-            🎉 Make A Wish
-        </button>
+<button onclick="celebrate()">
+🎉 Make A Wish
+</button>
 
-    </div>
+</div>
 
 </section>
 
 
 <div class="footer">
-    Made especially for Esha Gull 💗
+Made especially for Esha Gull 💗
 </div>
 
 
@@ -385,52 +753,28 @@ section{
 
 function updateCountdown(){
 
-    const now = new Date();
+const now=new Date();
 
-    let year = now.getFullYear();
+let year=now.getFullYear();
 
-    let birthday =
-        new Date(year,7,16,0,0,0);
+let birthday=new Date(year,7,16,0,0,0);
 
-    if(birthday <= now){
-        birthday =
-            new Date(year+1,7,16,0,0,0);
-    }
+if(birthday<=now){
+birthday=new Date(year+1,7,16,0,0,0);
+}
 
-    const difference =
-        birthday-now;
+const difference=birthday-now;
 
-    const days =
-        Math.floor(
-            difference/(1000*60*60*24)
-        );
+const days=Math.floor(difference/(1000*60*60*24));
+const hours=Math.floor((difference/(1000*60*60))%24);
+const minutes=Math.floor((difference/(1000*60))%60);
+const seconds=Math.floor((difference/1000)%60);
 
-    const hours =
-        Math.floor(
-            (difference/(1000*60*60))%24
-        );
+document.getElementById("days").textContent=String(days).padStart(2,"0");
+document.getElementById("hours").textContent=String(hours).padStart(2,"0");
+document.getElementById("minutes").textContent=String(minutes).padStart(2,"0");
+document.getElementById("seconds").textContent=String(seconds).padStart(2,"0");
 
-    const minutes =
-        Math.floor(
-            (difference/(1000*60))%60
-        );
-
-    const seconds =
-        Math.floor(
-            (difference/1000)%60
-        );
-
-    document.getElementById("days").textContent =
-        String(days).padStart(2,"0");
-
-    document.getElementById("hours").textContent =
-        String(hours).padStart(2,"0");
-
-    document.getElementById("minutes").textContent =
-        String(minutes).padStart(2,"0");
-
-    document.getElementById("seconds").textContent =
-        String(seconds).padStart(2,"0");
 }
 
 setInterval(updateCountdown,1000);
@@ -441,42 +785,37 @@ updateCountdown();
 
 function toggleMusic(){
 
-    const music =
-        document.getElementById("music");
+const music=document.getElementById("music");
+const button=document.getElementById("musicButton");
 
-    const button =
-        document.getElementById("musicButton");
+if(music.paused){
 
-    if(music.paused){
+music.play().then(()=>{
+button.textContent="⏸️";
+}).catch(()=>{
+alert("Upload music.mp3 to GitHub first.");
+});
 
-        music.play()
-        .then(()=>{
-            button.textContent="⏸️";
-        })
-        .catch(()=>{
-            alert(
-                "Upload music.mp3 to GitHub first."
-            );
-        });
+}else{
 
-    }else{
+music.pause();
+button.textContent="🎵";
 
-        music.pause();
-        button.textContent="🎵";
-    }
+}
+
 }
 
 
-/* SURPRISE */
+/* START SURPRISE */
 
 function startSurprise(){
 
-    document.querySelector(".gallery")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+document.querySelector(".gallery").scrollIntoView({
+behavior:"smooth"
+});
 
-    confetti();
+confetti();
+
 }
 
 
@@ -484,24 +823,90 @@ function startSurprise(){
 
 let messageIndex=0;
 
-const messages =
-    document.querySelectorAll(".message");
+const messages=document.querySelectorAll(".message");
 
 function nextMessage(){
 
-    messages[messageIndex]
-        .classList.remove("active");
+messages[messageIndex].classList.remove("active");
 
-    messageIndex++;
+messageIndex++;
 
-    if(messageIndex >= messages.length){
-        messageIndex=0;
-    }
+if(messageIndex>=messages.length){
+messageIndex=0;
+}
 
-    messages[messageIndex]
-        .classList.add("active");
+messages[messageIndex].classList.add("active");
 
-    confetti();
+confetti();
+
+}
+
+
+/* SLIDESHOW */
+
+let slideIndex=0;
+
+const slides=document.querySelectorAll(".slide");
+
+setInterval(()=>{
+
+slides[slideIndex].classList.remove("active");
+
+slideIndex++;
+
+if(slideIndex>=slides.length){
+slideIndex=0;
+}
+
+slides[slideIndex].classList.add("active");
+
+},3000);
+
+
+/* GIFT */
+
+function openGift(){
+
+const gift=document.getElementById("giftMessage");
+
+gift.style.display="block";
+
+confetti();
+
+}
+
+
+/* CAKE */
+
+function blowCandles(){
+
+const message=document.getElementById("cakeMessage");
+
+message.style.display="block";
+
+confetti();
+
+}
+
+
+/* SECRET CODE */
+
+function unlockSecret(){
+
+const code=document.getElementById("secretCode").value.trim();
+
+if(code==="Esha16"){
+
+document.getElementById("secretMessage").style.display="block";
+
+confetti();
+
+}else{
+
+alert("Wrong code 😜 Try again!");
+
+}
+
 }
 
 
@@ -509,36 +914,26 @@ function nextMessage(){
 
 function createHeart(){
 
-    const heart =
-        document.createElement("div");
+const heart=document.createElement("div");
 
-    heart.className="floating";
+heart.className="floating";
 
-    const hearts=[
-        "💗","💕","💖","💘","🌸","✨"
-    ];
+const hearts=["💗","💕","💖","💘","🌸","✨"];
 
-    heart.textContent =
-        hearts[
-            Math.floor(
-                Math.random()*hearts.length
-            )
-        ];
+heart.textContent=hearts[Math.floor(Math.random()*hearts.length)];
 
-    heart.style.left =
-        Math.random()*100+"vw";
+heart.style.left=Math.random()*100+"vw";
 
-    heart.style.fontSize =
-        (18+Math.random()*25)+"px";
+heart.style.fontSize=(18+Math.random()*25)+"px";
 
-    heart.style.animationDuration =
-        (4+Math.random()*5)+"s";
+heart.style.animationDuration=(4+Math.random()*5)+"s";
 
-    document.body.appendChild(heart);
+document.body.appendChild(heart);
 
-    setTimeout(()=>{
-        heart.remove();
-    },9000);
+setTimeout(()=>{
+heart.remove();
+},9000);
+
 }
 
 setInterval(createHeart,700);
@@ -548,51 +943,73 @@ setInterval(createHeart,700);
 
 function confetti(){
 
-    const items=[
-        "💗","💖","💕","✨","🎉","🌸","💝"
-    ];
+const items=["💗","💖","💕","✨","🎉","🌸","💝"];
 
-    for(let i=0;i<35;i++){
+for(let i=0;i<35;i++){
 
-        const item =
-            document.createElement("div");
+const item=document.createElement("div");
 
-        item.className="confetti";
+item.className="confetti";
 
-        item.textContent =
-            items[
-                Math.floor(
-                    Math.random()*items.length
-                )
-            ];
+item.textContent=items[Math.floor(Math.random()*items.length)];
 
-        item.style.left =
-            Math.random()*100+"vw";
+item.style.left=Math.random()*100+"vw";
 
-        item.style.fontSize =
-            (15+Math.random()*20)+"px";
+item.style.fontSize=(15+Math.random()*20)+"px";
 
-        item.style.animationDuration =
-            (2+Math.random()*3)+"s";
+item.style.animationDuration=(2+Math.random()*3)+"s";
 
-        document.body.appendChild(item);
+document.body.appendChild(item);
 
-        setTimeout(()=>{
-            item.remove();
-        },5000);
-    }
+setTimeout(()=>{
+item.remove();
+},5000);
+
 }
+
+}
+
+
+/* TAP HEARTS */
+
+document.addEventListener("click",function(e){
+
+const heart=document.createElement("div");
+
+heart.className="tap-heart";
+
+heart.textContent="💗";
+
+heart.style.left=e.clientX+"px";
+
+heart.style.top=e.clientY+"px";
+
+document.body.appendChild(heart);
+
+setTimeout(()=>{
+heart.remove();
+},1000);
+
+});
 
 
 /* FINAL SURPRISE */
 
 function celebrate(){
-    confetti();
-    alert("Make a beautiful wish, Esha! 🎂💗✨");
+
+confetti();
+
+setTimeout(()=>{
+
+alert(
+"Make a beautiful wish, Esha! 🎂💗✨"
+);
+
+},500);
+
 }
 
 </script>
 
 </body>
 </html>
-
